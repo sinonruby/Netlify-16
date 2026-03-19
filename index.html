@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RYSE Finance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fb;
+            color: #1a2639;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px -12px rgba(0,20,50,0.15);
+            overflow: hidden;
+            border: 1px solid #eef2f6;
+        }
+        .brand-bar {
+            background: #0b1e33;
+            padding: 1.5rem 2.5rem;
+        }
+        .brand-bar h1 {
+            font-weight: 600;
+            font-size: 2.1rem;
+            letter-spacing: -0.02em;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .brand-bar h1 span {
+            background: #2d8c5a;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-left: 0.75rem;
+        }
+        .content {
+            padding: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0b1e33;
+            border-left: 5px solid #2d8c5a;
+            padding-left: 1rem;
+            margin-bottom: 1.75rem;
+        }
+        .overview {
+            background: #f8fafd;
+            padding: 1.75rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e6ecf3;
+        }
+        .overview p {
+            font-size: 1.1rem;
+            color: #1f2c40;
+            margin-bottom: 1rem;
+        }
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin-top: 1rem;
+        }
+        .badge {
+            background: #e1f0fa;
+            color: #0b3b5c;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .info-box {
+            background: #ffffff;
+            border: 1px solid #eaeef4;
+            border-radius: 24px;
+            padding: 1.75rem;
+            box-shadow: 0 6px 12px -8px rgba(0,0,0,0.05);
+        }
+        .info-box h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: #153243;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info-box h3 i {
+            font-style: normal;
+            background: #2d8c5a;
+            color: white;
+            width: 26px;
+            height: 26px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .info-detail {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed #dde3eb;
+        }
+        .info-detail strong {
+            font-weight: 600;
+            color: #0f2b3f;
+            display: inline-block;
+            min-width: 110px;
+        }
+        .info-detail span {
+            color: #2d4b6e;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            border-radius: 18px;
+            border: 1px solid #e2e9f2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.98rem;
+        }
+        th {
+            background: #f0f5fc;
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            color: #0e2c41;
+            border-bottom: 1px solid #d2ddee;
+        }
+        td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #eaeef4;
+            color: #253c5c;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .highlight-green {
+            background: #ecf9f0;
+            color: #0d5e33;
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 40px;
+            display: inline-block;
+        }
+        .loan-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 1rem;
+        }
+        .loan-card {
+            background: #f3f9ff;
+            flex: 1 1 180px;
+            border-radius: 20px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid #dae5f2;
+        }
+        .loan-amount {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0b1e33;
+        }
+        .loan-desc {
+            color: #3d5775;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .footnote {
+            background: #f2f6fb;
+            padding: 1.5rem 2rem;
+            border-radius: 18px;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #2a405b;
+            border-left: 4px solid #2d8c5a;
+        }
+        .separator-light {
+            height: 1px;
+            background: linear-gradient(to right, #dbe2ec, transparent);
+            margin: 2rem 0;
+        }
+        .similar-block {
+            background: #f9fcfe;
+            padding: 1.8rem;
+            border-radius: 24px;
+            border: 1px solid #dce5f0;
+        }
+        .similar-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e6edf6;
+        }
+        .similar-item:last-child {
+            border-bottom: none;
+        }
+        .similar-item .marker {
+            width: 10px;
+            height: 10px;
+            background: #b0c6dd;
+            border-radius: 2px;
+        }
+        .similar-item .name {
+            font-weight: 500;
+            color: #1b3857;
+        }
+        .similar-item .loc {
+            color: #647e9e;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+        @media (max-width: 650px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .brand-bar h1 { font-size: 1.8rem; flex-wrap: wrap; }
+            .content { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="brand-bar">
+            <h1>RYSE Finance <span>LTD (UK)</span></h1>
+        </div>
+
+        <div class="content">
+            <!-- Overview -->
+            <div class="overview">
+                <p><strong>RYSE Finance Ltd</strong> is a UK-based private limited company incorporated on <strong>27 February 2024</strong>. It operates in the financial intermediation sector (SIC 64999), focusing on <strong>bridging loans, secured loan facilities, and portfolio refinancing</strong> for property investors and landlords.</p>
+                <div class="badge-list">
+                    <span class="badge">📍 London, United Kingdom</span>
+                    <span class="badge">⚡ Bridging specialist</span>
+                    <span class="badge">🏠 Property finance</span>
+                    <span class="badge">📊 Private funding model</span>
+                </div>
+            </div>
+
+            <!-- Key details grid -->
+            <div class="grid-2">
+                <div class="info-box">
+                    <h3><i>📌</i> Company details</h3>
+                    <div class="info-detail"><strong>Company name</strong> <span>RYSE FINANCE LTD</span></div>
+                    <div class="info-detail"><strong>Status</strong> <span>Active</span></div>
+                    <div class="info-detail"><strong>Incorporation</strong> <span>27 February 2024</span></div>
+                    <div class="info-detail"><strong>Registered office</strong> <span>First Floor, Winston House, 349 Regents Park Road, London N3 1DH</span></div>
+                    <div class="info-detail"><strong>SIC code</strong> <span>64999 – financial intermediation</span></div>
+                </div>
+                <div class="info-box">
+                    <h3><i>⚙️</i> Core activities</h3>
+                    <div class="info-detail"><strong>Specialisation</strong> <span>Bridging & secured loans</span></div>
+                    <div class="info-detail"><strong>Loan range</strong> <span>from £75,000 up to 75% LTV</span></div>
+                    <div class="info-detail"><strong>Recent deals</strong> <span>£150k (24h funding) · £400k (48h)</span></div>
+                    <div class="info-detail"><strong>Refinancing</strong> <span>Portfolio / multi‑bank consolidation</span></div>
+                    <div class="info-detail"><strong>Director</strong> <span>Rafi Black</span></div>
+                </div>
+            </div>
+
+            <!-- Table: at a glance -->
+            <div class="section-title">📋 Key company data</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+                    <tbody>
+                        <tr><td>Company name</td><td><strong>RYSE FINANCE LTD</strong></td></tr>
+                        <tr><td>Status</td><td><span class="highlight-green">● Active</span></td></tr>
+                        <tr><td>Incorporation date</td><td>27 February 2024</td></tr>
+                        <tr><td>Registered office</td><td>First Floor, Winston House, 349 Regents Park Road, London, N3 1DH</td></tr>
+                        <tr><td>SIC code</td><td>64999 – Financial intermediation not elsewhere classified</td></tr>
+                        <tr><td>Specialisation</td><td>Bridging loans and secured loan facilities for property portfolio refinancing</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Services & highlights -->
+            <div class="section-title">🚀 Services & recent activity</div>
+            <p style="margin-bottom: 1rem; color: #1f3a5f;">RYSE Finance provides fast and flexible property funding, with a track record of rapid bridging:</p>
+
+            <div class="loan-examples">
+                <div class="loan-card">
+                    <div class="loan-amount">£150,000</div>
+                    <div class="loan-desc">funded in < 24 hours</div>
+                </div>
+                <div class="loan-card">
+                    <div class="loan-amount">£400,000</div>
+                    <div class="loan-desc">completed in two days</div>
+                </div>
+                <div class="loan-card">
+                    <div class="loan-amount">up to 75% LTV</div>
+                    <div class="loan-desc">bridging loans from £75k</div>
+                </div>
+                <div class="loan-card">
+                    <div class="loan-amount">portfolio</div>
+                    <div class="loan-desc">complex refinancing with UK banks</div>
+                </div>
+            </div>
+
+            <div class="footnote">
+                ✦ <strong>Complex portfolio refinancing:</strong> Recently completed a secured loan facility for a portfolio landlord as part of a wider refinance involving two UK banks – helping consolidate debt and release capital for new investments.
+                <br><br>
+                ✦ Director <strong>Rafi Black</strong> emphasises speed and service, enabled by a private funding model.
+            </div>
+
+            <!-- Distinct from similar names -->
+            <div class="separator-light"></div>
+            <div class="section-title">🔍 Not to be confused with</div>
+            <div class="similar-block">
+                <p style="margin-bottom: 1rem; color: #2c4b74;">There are several other companies with similar names, but they are <strong>not</strong> the same as RYSE Finance Ltd:</p>
+                <div class="similar-item"><span class="marker"></span><span class="name">RYSE Financial</span><span class="loc">California, USA – investment advisory</span></div>
+                <div class="similar-item"><span class="marker"></span><span class="name">RYSE Asset Management (RYSEAM)</span><span class="loc">London – healthcare VC</span></div>
+                <div class="similar-item"><span class="marker"></span><span class="name">yRise.finance</span><span class="loc">DeFi platform</span></div>
+                <div class="similar-item"><span class="marker"></span><span class="name">RYSE (Fintech Software)</span><span class="loc">France – portfolio management</span></div>
+            </div>
+
+            <!-- static html note -->
+            <div style="margin-top: 2.5rem; padding-top: 1rem; border-top: 2px dotted #cbd5e3; font-size: 0.9rem; color: #4d627c; text-align: center;">
+                ⚡ This is a static HTML information page about RYSE Finance. No dynamic content — compiled for reference.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
